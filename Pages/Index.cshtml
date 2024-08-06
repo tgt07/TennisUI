@@ -1,0 +1,377 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+        <div class="page-header">
+        <label>ACE Burlington</label>
+        </div>
+        <div class="header-dropdown">
+            <select class="date-dropdown">
+                <option value="volvo">September 1, 2024 - October 1, 2024</option>
+                <option value="saab">September 1, 2024 - October 1, 2024</option>
+                <option value="mercedes">September 1, 2024 - October 1, 2024</option>
+                <option value="audi">September 1, 2024 - October 1, 2024</option>
+            </select>
+        </div>
+
+        <div class="points-header">
+            <div class="points-label">Total Points Achieved: </div>
+            <div class="points-label-val">281</div>
+            <div class="fund-label">Total Funding Achieved: </div>
+            <div class="fund-label-val">$5,000 <i class="fa-solid fa-circle-question"></i></div>
+        </div>
+
+        <div class="badge">
+            <img src="~/Pages/badge.png"  />
+        </div>
+
+    </div>
+
+<div id="summary">
+    <div class="text-center">
+        <div class="table-container">
+            <h5 class="perf-table-header">Player Performance at Nationals</h5>
+            <table class="perf-table">
+                <thead>
+                    <tr>
+                        <th>
+                            Tournament
+                        </th>
+                        <th>
+                            Results
+                        </th>
+                        <th>
+                            Points per Player
+                        </th>
+                        <th>
+                            Points Achived
+                        </th>
+                        <th>
+                            
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.PlayerPerformances)
+                    {
+                        <tr>
+                            <td>
+                                @item.Tournament
+                            </td>
+                            <td>
+                                @item.Results
+                            </td>
+                            <td>
+                                @item.PointsPerPlayer
+                            </td>
+                            <td>
+                                @item.PointsAchieved
+                            </td>
+                            <td>
+                                <i class="fa-solid fa-ellipsis-vertical openModalBtn" data-tournament="@item.Tournament" data-results="@item.Results" data-pointsperplayer="@item.PointsPerPlayer" data-pointsachieved="@item.PointsAchieved"></i>
+                            </td>
+                        </tr>
+                    }
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="table-footer">
+        <div class="footer-label">Total Points Achieved: </div>
+        <div class="footer-label-val">281</div>
+    </div>
+    <div class="spacer">
+
+    </div>
+    <div class="text-center">
+        <div class="table-container">
+            <h5 class="perf-table-header">National Ranking</h5>
+            <table class="perf-table">
+                <thead>
+                    <tr>
+                        <th>
+                            Category
+                        </th>
+                        <th>
+                            Results
+                        </th>
+                        <th>
+                            Points per Player
+                        </th>
+                        <th>
+                            Points Achived
+                        </th>
+                        <th>
+                            
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.NationalRankings)
+                    {
+                        <tr>
+                            <td>
+                                @item.Category
+                            </td>
+                            <td>
+                                @item.ResultsValue
+                            </td>
+                            <td>
+                                @item.PointsPerPlayer
+                            </td>
+                            <td>
+                                @item.PointsAchieved
+                            </td>
+                            <td>
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </td>
+                        </tr>
+                    }
+                
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="table-footer">
+        <div class="footer-label">Total Points Achieved: </div>
+        <div class="footer-label-val">281</div>
+    </div>
+
+    <div class="spacer">
+    </div>
+
+    <div class="text-center">
+        <div class="table-container">
+            <h5 class="perf-table-header">Players Meeting Minimum Tournament Guidelines</h5>
+            <table class="perf-table">
+                <thead>
+                    <tr>
+                        <th>
+                            Category
+                        </th>
+                        <th>
+                            Guideline
+                        </th>
+                        <th>
+                            Points per Player
+                        </th>
+                        <th>
+                            Points Achived
+                        </th>
+                        <th>
+                            
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.PlayersMeetingTournamentGuidelines)
+                    {
+                        <tr>
+                            <td>
+                                @item.Category
+                            </td>
+                            <td>
+                                @item.Guideline
+                            </td>
+                            <td>
+                                @item.PointsPerPlayer
+                            </td>
+                            <td>
+                                @item.PointsAchieved
+                            </td>
+                            <td>
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </td>
+                        </tr>
+                    }
+                    
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+
+    <div class="table-footer">
+        <div class="footer-label">Total Points Achieved: </div>
+        <div class="footer-label-val">281</div>
+    </div>
+
+    <div class="spacer">
+    </div>
+
+    <div class="text-center">
+        <div class="table-container">
+            <h5 class="perf-table-header">Coaching Stahh Certification Level</h5>
+            <table class="perf-table">
+                <thead>
+                    <tr>
+                        <th>
+                            Category
+                        </th>
+                        <th>
+                            Guideline
+                        </th>
+                        <th>
+                            Points per Player
+                        </th>
+                        <th>
+                            Points Achived
+                        </th>
+                        <th>
+                            
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.PlayersMeetingTournamentGuidelines)
+                    {
+                        <tr>
+                            <td>
+                                @item.Category
+                            </td>
+                            <td>
+                                @item.Guideline
+                            </td>
+                            <td>
+                                @item.PointsPerPlayer
+                            </td>
+                            <td>
+                                @item.PointsAchieved
+                            </td>
+                            <td>
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </td>
+                        </tr>
+                    }
+                    
+                </tbody>
+
+            </table>
+
+        </div>
+    </div>
+
+    <div class="table-footer">
+        <div class="footer-label">Total Points Achieved: </div>
+        <div class="footer-label-val">281</div>
+    </div>
+
+</div>
+
+<div id="coaches-players">
+     <div class="text-center">
+        <div class="table-container">
+            <h5 class="perf-table-header">Your Players</h5>
+            <table class="perf-table">
+                <thead>
+                    <tr>
+                        <th>
+                            Tournament Player ID
+                        </th>
+                        <th>
+                            Player Name
+                        </th>
+                        <th>
+                            Date of Birth
+                        </th>
+                        <th>
+                            Date Added
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Players)
+                    {
+                        <tr>
+                            <td>
+                                @item.TournamentPlayerId
+                            </td>
+                            <td>
+                                @item.PlayerName
+                            </td>
+                            <td>
+                                @item.Birthday
+                            </td>
+                            <td>
+                                @item.DateAdded
+                            </td>
+                        </tr>
+                    }
+                    
+                </tbody>
+            </table>
+        </div>
+        <div class="coached-footer">
+            <p>Contact Tennis Canada if you see any player discrepancies: <i class="fa-regular fa-envelope"></i></p>
+        </div>
+    </div>
+    
+    
+    <div class="sp-spacer">
+    </div>
+
+    <div class="text-center">
+        <div class="table-container">
+            <h5 class="perf-table-header">Your Coaches</h5>
+            <table class="perf-table">
+                <thead>
+                    <tr>
+                        <th>
+                            NCCP
+                        </th>
+                        <th>
+                            Coach Name
+                        </th>
+                        <th>
+                            Certification Level
+                        </th>
+                        <th>
+                            Date Added
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Coaches)
+                    {
+                        <tr>
+                            <td>
+                                @item.NCCP
+                            </td>
+                            <td>
+                                @item.CoachName
+                            </td>
+                            <td>
+                                @item.CertificationLevel
+                            </td>
+                            <td>
+                                @item.DateAdded
+                            </td>
+                        </tr>
+                    }
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+      <div class="coached-footer">
+            <p>Contact Tennis Canada if you see any player discrepancies: <i class="fa-regular fa-envelope"></i></p>
+        </div>
+
+</div>
+
+<!-- Modal structure -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p id="modalDetails"></p>
+    </div>
+</div>
+
